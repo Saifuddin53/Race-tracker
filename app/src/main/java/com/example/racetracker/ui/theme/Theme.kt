@@ -105,6 +105,18 @@ fun RaceTrackerTheme(
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
     }
+<<<<<<< HEAD
+=======
+
+    val view = LocalView.current
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            window.statusBarColor = colorScheme.primary.toArgb()
+            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+        }
+    }
+>>>>>>> main
 
     MaterialTheme(
         colorScheme = colorScheme,
