@@ -30,6 +30,7 @@ class RaceParticipant(
     private val progressIncrement: Int = 1,
     private val initialProgress: Int = 0
 ) {
+
     init {
         require(maxProgress > 0) { "maxProgress=$maxProgress; must be > 0" }
         require(progressIncrement > 0) { "progressIncrement=$progressIncrement; must be > 0" }
@@ -41,10 +42,6 @@ class RaceParticipant(
     var currentProgress by mutableStateOf(initialProgress)
         private set
 
-    /**
-     * Updates the value of [currentProgress] by value [progressIncrement] until it reaches
-     * [maxProgress]. There is a delay of [progressDelayMillis] between each update.
-     */
     suspend fun run() {
         while (currentProgress < maxProgress) {
             delay(progressDelayMillis)
